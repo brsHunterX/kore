@@ -1,10 +1,6 @@
-// FLUTTER
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-// COLORS
-import 'package:kore/shared/theme/app_theme_colors.dart';
-
+import 'package:kore/shared/theme/themes/app_theme_colors.dart';
 
 class AppThemeLight {
 
@@ -13,18 +9,20 @@ class AppThemeLight {
   static final ThemeData theme = ThemeData(
 
     // 
-
     brightness: Brightness.light,
 
     // 
-
-    textTheme: GoogleFonts.openSansTextTheme(
+    textTheme: GoogleFonts.montserratTextTheme(
       ThemeData.light().textTheme
     ),
+
+    //
+    primaryColor: AppThemeColors.blue,
     
     //
-     
-    primaryColor: AppThemeColors.blue,
-    accentColor: AppThemeColors.blue,
+    colorScheme: ThemeData.light().colorScheme.copyWith(
+      primary:  AppThemeColors.blue,
+      secondary:  AppThemeColors.blue,
+    ),
   );
 }

@@ -9,18 +9,18 @@ part of 'home_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$HomeController on _HomeControllerBase, Store {
-  final _$valueAtom = Atom(name: '_HomeControllerBase.value');
+  final _$_counterAtom = Atom(name: '_HomeControllerBase._counter');
 
   @override
-  int get value {
-    _$valueAtom.reportRead();
-    return super.value;
+  int get _counter {
+    _$_counterAtom.reportRead();
+    return super._counter;
   }
 
   @override
-  set value(int value) {
-    _$valueAtom.reportWrite(value, super.value, () {
-      super.value = value;
+  set _counter(int value) {
+    _$_counterAtom.reportWrite(value, super._counter, () {
+      super._counter = value;
     });
   }
 
@@ -41,7 +41,7 @@ mixin _$HomeController on _HomeControllerBase, Store {
   @override
   String toString() {
     return '''
-value: ${value}
+
     ''';
   }
 }

@@ -1,25 +1,19 @@
 // FLUTTER
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-
-// CONTROLLERS
-import 'package:kore/app/modules/profile/controllers/profile_controller.dart';
-import 'package:kore/kernel/themefy/controllers/theme_controller.dart';
-import 'package:kore/kernel/themefy/widgets/theme_dialog.dart';
+import 'package:kore/shared/theme/widgets/theme_dialog.dart';
+import 'package:kore/shared/theme/controllers/theme_controller.dart';
 
 class ProfilePage extends StatefulWidget {
-  
+  const ProfilePage({ Key key }) : super(key: key);
+
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _ProfilePageState extends ModularState<ProfilePage, ProfileController> {
+class _ProfilePageState extends State<ProfilePage> {
 
   final ThemeController themeController = Modular.get<ThemeController>();
-
-  @override
-  // TODO: implement controller
-  ProfileController get controller => super.controller;
 
   Widget _buildUserTile() {
 

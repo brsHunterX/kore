@@ -2,24 +2,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-// CONTROLLERS
-import 'package:kore/app/modules/login/controllers/login_controller.dart';
-
 class SignUpPage extends StatefulWidget {
-  
+  const SignUpPage({ Key key }) : super(key: key);
+
   @override
   _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _SignUpPageState extends ModularState<SignUpPage, LoginController> {
-
+class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
-  @override
-  // TODO: implement controller
-  LoginController get controller => super.controller;
 
   Widget _buildTitle() {
 
@@ -111,11 +104,9 @@ class _SignUpPageState extends ModularState<SignUpPage, LoginController> {
     return Container(
       height: 52.0,
       width: MediaQuery.of(context).size.width,
-      child: RaisedButton(
-        textColor: Colors.white,
+      child: ElevatedButton(
         child: Text('Create my account'),
-        color: Theme.of(context).primaryColor,
-        onPressed: () => Modular.to.pushNamed('/home'),
+        onPressed: () => Modular.to.navigate('/home/'),
       ),
     );
   }
@@ -125,9 +116,9 @@ class _SignUpPageState extends ModularState<SignUpPage, LoginController> {
     return Container(
       height: 52.0,
       width: MediaQuery.of(context).size.width,
-      child: FlatButton(
+      child: TextButton(
         child: Text('Sign In with my account'),
-        onPressed: () => Modular.link.pushNamed('/sign-in'),
+        onPressed: () => Modular.to.navigate('./sign-in'),
       ),
     );
   }
