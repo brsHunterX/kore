@@ -1,18 +1,16 @@
-// FLUTTER
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:kore/app/app_module.dart';
+import 'package:kore/app/widgets/app_widget.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-// MODULES
-import 'package:kore/app/app_module.dart';
-
 void main() async {
-  
-  await DotEnv().load('.env');
+
+  await dotenv.load(fileName: '.env');
 
   // Comment this line if you want your app to accept screen rotation.
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
-  runApp(ModularApp(module: AppModule()));
+  return runApp(ModularApp(module: AppModule(), child: const AppWidget()));
 }

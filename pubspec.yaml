@@ -25,14 +25,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  dio: ^3.0.9
-  mobx: ^1.2.1+1
-  flutter_mobx: ^1.1.0+1
-  flutter_dotenv: ^2.0.1
-  flutter_modular: ^1.2.7+1
+  dio: ^4.0.0
+  mobx: ^2.0.4
+  flutter_mobx: ^2.0.2
+  flutter_dotenv: ^5.0.2
+  flutter_modular: ^4.0.1+2
+  shared_preferences: ^2.0.8
 
   # Perfumery ;P
-  cupertino_icons: ^0.1.2
+  google_fonts: ^2.1.0
+  cupertino_icons: ^1.0.3
+  smooth_page_indicator: ^1.0.0+2
 
 # The following adds the Cupertino Icons font to your application.
 # Use with the CupertinoIcons class for iOS style icons.
@@ -40,13 +43,13 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  mockito: ^4.1.1
-  build_runner: ^1.10.0
-  mobx_codegen: ^1.1.0+1
+  mockito: ^5.0.16
+  build_runner: ^2.1.2
+  mobx_codegen: ^2.0.3
   
   # Perfumery ;P
-  flutter_native_splash: ^0.1.9
-  flutter_launcher_icons: ^0.7.0
+  flutter_native_splash: ^1.2.4
+  flutter_launcher_icons: ^0.9.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -85,9 +88,9 @@ vars:
 # slidy run script_name
 
 scripts: 
+  beautify: $icon & $splash
   mobx_build: $clean & $get & $runner build --delete-conflicting-outputs
   mobx_watch: $clean & $get & $runner watch --delete-conflicting-outputs
-  kore_beautify: $icon & $splash
 
 # Settings of app icons for both Android and iOS
 #

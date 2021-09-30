@@ -1,24 +1,15 @@
-// FLUTTER
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:kore/app/modules/home/pages/home_page.dart';
+import 'package:kore/app/modules/home/controllers/home_controller.dart';
 
-// CONTROLLERS
-import 'package:kore/app/modules/home/home_controller.dart';
-
-// PAGES
-import 'package:kore/app/modules/home/home_page.dart';
-
-
-class HomeModule extends ChildModule {
-  
+class HomeModule extends Module {
   @override
   List<Bind> get binds => [
-    Bind((i) => HomeController()),
+    Bind.singleton((i) => HomeController()),
   ];
 
   @override
-  List<Router> get routers => [
-    Router(Modular.initialRoute, child: (_, args) => HomePage()),
+  List<ModularRoute> get routes => [
+    ChildRoute('/', child: (context, args) => const HomePage()),
   ];
-
-  static Inject get to => Inject<HomeModule>.of();
 }
