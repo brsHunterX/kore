@@ -2,23 +2,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-// CONTROLLERS
-import 'package:kore/app/modules/login/controllers/login_controller.dart';
-
 class SignInPage extends StatefulWidget {
-  
+  const SignInPage({ Key key }) : super(key: key);
+
   @override
   _SignInPageState createState() => _SignInPageState();
 }
 
-class _SignInPageState extends ModularState<SignInPage, LoginController> {
-
+class _SignInPageState extends State<SignInPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
-  @override
-  // TODO: implement controller
-  LoginController get controller => super.controller;
 
   Widget _buildAvatar() {
 
@@ -33,8 +26,8 @@ class _SignInPageState extends ModularState<SignInPage, LoginController> {
   Widget _buildTitle() {
 
     return Text(
-      'Hi Bruno Santos',
-      textAlign: TextAlign.center,
+      'Welcome',
+      textAlign: TextAlign.start,
       style: Theme.of(context).textTheme.headline5,
     );
   }
@@ -43,7 +36,7 @@ class _SignInPageState extends ModularState<SignInPage, LoginController> {
 
     return Text(
       'Sign in with your account',
-      textAlign: TextAlign.center,
+      textAlign: TextAlign.start,
       style: Theme.of(context).textTheme.caption,
     );
   }
@@ -98,11 +91,9 @@ class _SignInPageState extends ModularState<SignInPage, LoginController> {
     return Container(
       height: 52.0,
       width: MediaQuery.of(context).size.width,
-      child: RaisedButton(
+      child: ElevatedButton(
         child: Text('Sign In'),
-        textColor: Colors.white,
-        color: Theme.of(context).primaryColor,
-        onPressed: () => Modular.to.pushNamed('/home'),
+        onPressed: () => Modular.to.navigate('/home/'),
       ),
     );
   }
@@ -112,9 +103,9 @@ class _SignInPageState extends ModularState<SignInPage, LoginController> {
     return Container(
       height: 52.0,
       width: MediaQuery.of(context).size.width,
-      child: FlatButton(
+      child: TextButton(
         child: Text('Create account'),
-        onPressed: () => Modular.link.pushNamed('/sign-up'),
+        onPressed: () => Modular.to.navigate('./sign-up'),
       ),
     );
   }
@@ -128,7 +119,7 @@ class _SignInPageState extends ModularState<SignInPage, LoginController> {
           horizontal: 32.0,
         ),
         children: <Widget>[
-          _buildAvatar(),
+          // _buildAvatar(),
           SizedBox(height: 40.0,),
           _buildTitle(),
           _buildSubtitle(),

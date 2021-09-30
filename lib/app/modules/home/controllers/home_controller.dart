@@ -7,10 +7,12 @@ class HomeController = _HomeControllerBase with _$HomeController;
 abstract class _HomeControllerBase with Store {
   
   @observable
-  int value = 0;
+  int _counter = 0;
+
+  String get counter => _counter.toString();
 
   @action
   void increment() {
-    value++;
+    _counter++;
   }
 }

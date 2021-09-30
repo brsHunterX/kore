@@ -1,10 +1,6 @@
-// MODELS
-import 'package:kore/kernel/themefy/models/app_theme.dart';
-
-// THEMES
-import 'package:kore/shared/theme/app_theme_dark.dart';
-import 'package:kore/shared/theme/app_theme_light.dart';
-
+import 'package:kore/shared/theme/models/app_theme.dart';
+import 'package:kore/shared/theme/themes/app_theme_dark.dart';
+import 'package:kore/shared/theme/themes/app_theme_light.dart';
 
 class AppThemes {
 

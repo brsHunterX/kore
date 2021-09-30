@@ -41,11 +41,9 @@ class LoginSlide extends StatelessWidget {
     return Container(
       height: 52.0,
       width: MediaQuery.of(context).size.width,
-      child: RaisedButton(
-        textColor: Colors.white,
+      child: ElevatedButton(
         child: Text(buttonLabel),
         onPressed: onPressedButton,
-        color: Theme.of(context).primaryColor,
       ),
     );
   }
