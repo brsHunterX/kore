@@ -1,7 +1,7 @@
 // FLUTTER
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:kore/shared/theme/widgets/theme_dialog.dart';
 import 'package:kore/shared/theme/controllers/theme_controller.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -25,14 +25,16 @@ class _ProfilePageState extends State<ProfilePage> {
   
   Widget _buildThemeTile() {
 
-    return ListTile(
-      leading: Icon(Icons.palette),
-      title: Text('Change theme'),
-      subtitle: Text('Select your favorite theme colors.'),
-      onTap: () => showDialog(
-        context:  context,
-        builder:  (BuildContext context) => ThemeDialog(controller: themeController,)
-      ),
+    return Observer(
+      builder: (context) => ListTile(
+        leading: Icon(Icons.palette),
+        title: Text('Change theme'),
+        subtitle: Text('Select your favorite theme colors.'),
+        trailing: Switch.adaptive(
+          value: themeController.isDark,
+          onChanged: (value) => themeController.toggleTheme(),
+        ),
+      )
     );
   }
   

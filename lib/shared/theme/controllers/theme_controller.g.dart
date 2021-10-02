@@ -9,60 +9,41 @@ part of 'theme_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$ThemeController on _ThemeControllerBase, Store {
-  final _$themeAtom = Atom(name: '_ThemeControllerBase.theme');
+  final _$_themeModeAtom = Atom(name: '_ThemeControllerBase._themeMode');
 
   @override
-  AppTheme get theme {
-    _$themeAtom.reportRead();
-    return super.theme;
+  ThemeMode get _themeMode {
+    _$_themeModeAtom.reportRead();
+    return super._themeMode;
   }
 
   @override
-  set theme(AppTheme value) {
-    _$themeAtom.reportWrite(value, super.theme, () {
-      super.theme = value;
+  set _themeMode(ThemeMode value) {
+    _$_themeModeAtom.reportWrite(value, super._themeMode, () {
+      super._themeMode = value;
     });
-  }
-
-  final _$getCurrentThemeIdAsyncAction =
-      AsyncAction('_ThemeControllerBase.getCurrentThemeId');
-
-  @override
-  Future<String> getCurrentThemeId() {
-    return _$getCurrentThemeIdAsyncAction.run(() => super.getCurrentThemeId());
   }
 
   final _$_ThemeControllerBaseActionController =
       ActionController(name: '_ThemeControllerBase');
 
   @override
-  List<AppTheme> getThemes() {
+  void changeTheme(ThemeMode themeMode) {
     final _$actionInfo = _$_ThemeControllerBaseActionController.startAction(
-        name: '_ThemeControllerBase.getThemes');
+        name: '_ThemeControllerBase.changeTheme');
     try {
-      return super.getThemes();
+      return super.changeTheme(themeMode);
     } finally {
       _$_ThemeControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  AppTheme getTheme(String id) {
+  void toggleTheme() {
     final _$actionInfo = _$_ThemeControllerBaseActionController.startAction(
-        name: '_ThemeControllerBase.getTheme');
+        name: '_ThemeControllerBase.toggleTheme');
     try {
-      return super.getTheme(id);
-    } finally {
-      _$_ThemeControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void setTheme(AppTheme theme) {
-    final _$actionInfo = _$_ThemeControllerBaseActionController.startAction(
-        name: '_ThemeControllerBase.setTheme');
-    try {
-      return super.setTheme(theme);
+      return super.toggleTheme();
     } finally {
       _$_ThemeControllerBaseActionController.endAction(_$actionInfo);
     }
@@ -71,7 +52,7 @@ mixin _$ThemeController on _ThemeControllerBase, Store {
   @override
   String toString() {
     return '''
-theme: ${theme}
+
     ''';
   }
 }

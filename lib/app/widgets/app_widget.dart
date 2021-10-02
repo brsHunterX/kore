@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:kore/shared/theme/themes/app_theme_dark.dart';
+import 'package:kore/shared/theme/themes/app_theme_light.dart';
 import 'package:kore/shared/theme/controllers/theme_controller.dart';
 
 class AppWidget extends StatelessWidget {
@@ -16,7 +18,10 @@ class AppWidget extends StatelessWidget {
       builder: (BuildContext context) => MaterialApp(
         initialRoute: '/auth/',
         title: dotenv.get('APP_NAME'),
-        theme: themeController.theme?.data,
+        theme: AppThemeLight.theme,
+        darkTheme: AppThemeDark.theme,
+        themeMode: themeController.themeMode,
+        // theme: themeController.theme?.data,
         debugShowCheckedModeBanner: (
           dotenv.get('APP_ENV') == 'local' ||
           dotenv.get('APP_ENV') == 'staging' ||

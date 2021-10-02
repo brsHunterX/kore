@@ -1,53 +1,31 @@
 import 'package:mobx/mobx.dart';
-import 'package:kore/shared/theme/models/app_theme.dart';
-import 'package:kore/shared/theme/repositories/theme_repository.dart';
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 part 'theme_controller.g.dart';
 
 class ThemeController = _ThemeControllerBase with _$ThemeController;
 
 abstract class _ThemeControllerBase with Store {
-  final ThemeRepository repository;
-
-  _ThemeControllerBase(
-    this.repository,
-  ) : assert(repository != null) {
-    _initialize();
-  }
 
   @observable
-  AppTheme theme;
+  ThemeMode _themeMode = ThemeMode.system;
 
-  //
-  void _initialize() async {
-    final String themeId = await getCurrentThemeId();
+  ThemeMode get themeMode => _themeMode;
 
-    setTheme(getTheme(themeId));
+  bool get isDark => _themeMode == ThemeMode.dark;
+
+  @action
+  void changeTheme(ThemeMode themeMode) {
+    this._themeMode = themeMode;
   }
 
-  //
   @action
-  Future<String> getCurrentThemeId() async {
-    return await repository.getCurrentThemeId();
-  }
-
-  //
-  @action
-  List<AppTheme> getThemes() {
-    return repository.getThemes();
-  }
-
-  //
-  @action
-  AppTheme getTheme(String id) {
-    return repository.getTheme(id);
-  }
-
-  //
-  @action
-  void setTheme(AppTheme theme) {
-    repository
-        .saveThemeIdPreference(theme.id)
-        .then((value) => this.theme = theme);
+  void toggleTheme() {
+    if (isDark) {
+      this.changeTheme(ThemeMode.light);
+    } else {
+      this.changeTheme(ThemeMode.dark);
+    }
   }
 }
