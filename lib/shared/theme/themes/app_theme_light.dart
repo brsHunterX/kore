@@ -10,19 +10,20 @@ class AppThemeLight {
 
     // 
     brightness: Brightness.light,
+    colorScheme: ColorScheme.light(),
 
     // 
-    textTheme: GoogleFonts.montserratTextTheme(
-      ThemeData.light().textTheme
-    ),
+    // textTheme: GoogleFonts.montserratTextTheme(
+    //   ThemeData.light().textTheme
+    // ),
 
     //
-    primaryColor: AppThemeColors.blue,
+    // primaryColor: AppThemeColors.blue,
     
     //
-    colorScheme: ThemeData.light().colorScheme.copyWith(
-      primary:  AppThemeColors.blue,
-      secondary:  AppThemeColors.blue,
-    ),
+    // colorScheme: ThemeData.light().colorScheme.copyWith(
+    //   primary:  AppThemeColors.blue,
+    //   secondary:  AppThemeColors.blue,
+    // ),
   );
 }

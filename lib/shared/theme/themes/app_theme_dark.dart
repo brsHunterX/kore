@@ -11,19 +11,20 @@ class AppThemeDark {
 
     //  
     brightness: Brightness.dark,
+    colorScheme: ColorScheme.dark(),
 
     // 
-    textTheme: GoogleFonts.montserratTextTheme(
-      ThemeData.dark().textTheme
-    ),
+    // textTheme: GoogleFonts.montserratTextTheme(
+    //   ThemeData.dark().textTheme
+    // ),
 
     //
-    primaryColor: AppThemeColors.blue,
+    // primaryColor: AppThemeColors.blue,
     
     //
-    colorScheme: ThemeData.dark().colorScheme.copyWith(
-      primary:  AppThemeColors.blue,
-      secondary:  AppThemeColors.blue,
-    ),
+    // colorScheme: ThemeData.dark().colorScheme.copyWith(
+    //   primary:  AppThemeColors.blue,
+    //   secondary:  AppThemeColors.blue,
+    // ),
   );
 }
