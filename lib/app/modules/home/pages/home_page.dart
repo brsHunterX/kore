@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:kore/app/modules/home/controllers/home_controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -38,6 +39,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Text(AppLocalizations.of(context).hello_world, style: Theme.of(context).textTheme.headline3),
             Text('Tap in button to increase counter.'),
             Text(this.homeController.counter, style: Theme.of(context).textTheme.headline3),
           ],

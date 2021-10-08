@@ -1,0 +1,6 @@
+# arb-dir: lib/shared/localization
+# template-arb-file: languages/app_en.arb
+# output-localization-file: app_localizations.dart
+arb-dir: lib/l10n
+template-arb-file: app_en.arb
+output-localization-file: app_localizations.dart
